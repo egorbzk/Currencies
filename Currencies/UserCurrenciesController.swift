@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  UserCurrenciesController.swift
 //  Currencies
 //
 //  Created by Egor Bozko on 10/17/20.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserCurrenciesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
-
-
 }
-
