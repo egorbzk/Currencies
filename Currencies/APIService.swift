@@ -8,16 +8,35 @@
 
 import Foundation
 
-struct ApiResponse: Codable {
+struct APILatestResponse: Codable {
+    
     public let success: Bool
     public let base: String
-    public let date: String
-    public let rates: [String]
-}
+    public let date: Date
+    public let rates: [Rate]
+    
+    struct Rate: Decodable {
+        public let name: String
+        public let value: Double
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case success, base, date, rates
+    }
 
-struct Rate: Codable {
-    public let name: String
-    public let value: String
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        success = try container.decode(Bool.self, forKey: .success)
+        base = try container.decode(String.self, forKey: .base)
+        date = try container.decode(Date.self, forKey: .date)
+        let r = try container.decode([String : Double].self, forKey: .rates)
+        
+        rates = r.map({ Rate(name: $0.key, value: $0.value) }).sorted(by: {$0.name < $1.name})
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        
+    }
 }
 
 final class Router {
@@ -53,10 +72,11 @@ class APIService {
     private let session = URLSession.shared
     
     private let jsonDecoder: JSONDecoder = {
-       let decoder = JSONDecoder()
+        let decoder = JSONDecoder()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-mm-dd"
         decoder.dateDecodingStrategy = .formatted(formatter)
+        
         return decoder
     }()
     
@@ -87,8 +107,11 @@ class APIService {
         }.resume()
     }
     
-    func loadCurrencies(completion: ApiResponse,  failure: ([Error?])) {
-        
+    func loadCurrencies(completion: @escaping (Result<APILatestResponse, APIError>) -> Void) {
+        guard let url = URL(string: router.latest) else {
+            return
+        }
+        fetchResources(url: url, completion: completion)
     }
     
     func calculateCurrencies() {

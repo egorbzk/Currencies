@@ -14,6 +14,7 @@
 		6013134D253B02570098A37C /* Currencies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6013134B253B02570098A37C /* Currencies.xcdatamodeld */; };
 		6013134F253B025C0098A37C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6013134E253B025C0098A37C /* Assets.xcassets */; };
 		60131352253B025C0098A37C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60131350253B025C0098A37C /* LaunchScreen.storyboard */; };
+		60B75165253C8DA700DC3379 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B75164253C8DA700DC3379 /* ItemCell.swift */; };
 		60CA7B33253B206B0096425C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CA7B32253B206B0096425C /* APIService.swift */; };
 		60CA7B35253B30E20096425C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CA7B34253B30E20096425C /* Extensions.swift */; };
 		60CA7B37253B39820096425C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CA7B36253B39820096425C /* DataManager.swift */; };
@@ -31,6 +32,7 @@
 		6013134E253B025C0098A37C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60131351253B025C0098A37C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60131353253B025C0098A37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60B75164253C8DA700DC3379 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		60CA7B32253B206B0096425C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		60CA7B34253B30E20096425C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		60CA7B36253B39820096425C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				6013134B253B02570098A37C /* Currencies.xcdatamodeld */,
 				60CA7B38253B532B0096425C /* UserCurrenciesController.swift */,
 				60CA7B3A253B560B0096425C /* ItemCell.xib */,
+				60B75164253C8DA700DC3379 /* ItemCell.swift */,
 			);
 			path = Currencies;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				60CA7B37253B39820096425C /* DataManager.swift in Sources */,
 				60131347253B02570098A37C /* LatestCurrenciesController.swift in Sources */,
+				60B75165253C8DA700DC3379 /* ItemCell.swift in Sources */,
 				60CA7B33253B206B0096425C /* APIService.swift in Sources */,
 				60131343253B02570098A37C /* AppDelegate.swift in Sources */,
 				6013134D253B02570098A37C /* Currencies.xcdatamodeld in Sources */,

@@ -17,6 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cvs-a7-TTY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Rzp-Nn-wav"/>
                     <navigationItem key="navigationItem" id="PTp-cv-gzs"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -25,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jrJ-i1-pyC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="570"/>
+            <point key="canvasLocation" x="-632" y="581"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YPI-8W-dcu">
@@ -42,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydu-H4-voU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226.0869565217392" y="570.53571428571422"/>
+            <point key="canvasLocation" x="345" y="581"/>
         </scene>
         <!--All currencies-->
         <scene sceneID="K7J-hD-5o5">
@@ -53,34 +54,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TL5-Fp-xO0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="72" id="huF-Zh-G5p">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="72"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="huF-Zh-G5p" id="2jI-x6-sIx">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mZ-3K-Eqc">
-                                                    <rect key="frame" x="45" y="26" width="48" height="28"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2X-sn-hp2">
-                                                    <rect key="frame" x="331" y="21" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                    <state key="normal" title="Add"/>
-                                                    <state key="selected" title="Remove"/>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -92,52 +67,55 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q2P-QC-Fpa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="All currencies" image="table" catalog="system" id="WPo-M1-fLF"/>
+                    <navigationItem key="navigationItem" id="nag-mf-7g2"/>
+                    <connections>
+                        <outlet property="tableView" destination="TL5-Fp-xO0" id="Hid-Ro-jWb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pt-yk-GFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-631.8840579710145" y="-145.3125"/>
+            <point key="canvasLocation" x="278.26086956521743" y="-145.3125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="S1P-dL-E3Y">
             <objects>
                 <tabBarController id="o7u-yM-ROA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jog-YY-sTk"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FYQ-0I-n35">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9iw-Hn-Vgg" kind="relationship" relationship="viewControllers" id="rYh-1p-8zs"/>
-                        <segue destination="Xtn-Id-baH" kind="relationship" relationship="viewControllers" id="cSM-SO-cq9"/>
+                        <segue destination="Gyj-mE-1P2" kind="relationship" relationship="viewControllers" id="rYh-1p-8zs"/>
+                        <segue destination="kpW-QL-Eck" kind="relationship" relationship="viewControllers" id="fOg-nn-0Sn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fht-Zu-Cce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1547" y="180"/>
         </scene>
-        <!--My currencies-->
-        <scene sceneID="e44-VH-kSF">
+        <!--All currencies-->
+        <scene sceneID="dpu-ca-0Eq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xtn-Id-baH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My currencies" image="folder" catalog="system" id="jRH-aU-GOB"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gyj-mE-1P2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="All currencies" image="table" catalog="system" id="WPo-M1-fLF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Hk-gR-5Pd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FAQ-ho-eo9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kpW-QL-Eck" kind="relationship" relationship="rootViewController" id="hsx-7c-qma"/>
+                        <segue destination="9iw-Hn-Vgg" kind="relationship" relationship="rootViewController" id="CRo-vx-4gT"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8JE-9t-j5r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vn4-4f-sG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-633.33333333333337" y="570.53571428571422"/>
+            <point key="canvasLocation" x="-631.8840579710145" y="-145.3125"/>
         </scene>
     </scenes>
     <resources>
-        <image name="folder" catalog="system" width="64" height="48"/>
         <image name="table" catalog="system" width="64" height="48"/>
     </resources>
 </document>
