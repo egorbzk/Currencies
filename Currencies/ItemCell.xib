@@ -15,26 +15,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pus-Gz-Kda">
-                        <rect key="frame" x="30" y="25" width="48" height="40"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pus-Gz-Kda">
+                        <rect key="frame" x="30" y="25" width="260" height="40"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZl-71-7dC">
-                        <rect key="frame" x="343" y="25" width="41" height="40"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                        <state key="normal" title="Add"/>
-                        <state key="selected" title="Remove"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZl-71-7dC">
+                        <rect key="frame" x="310" y="28" width="84" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="84" id="orN-sp-Vf9"/>
+                        </constraints>
+                        <state key="normal" title="Add">
+                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <state key="selected" title="Remove">
+                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="controlButtonPressed:" destination="RkG-6T-2bN" eventType="touchUpInside" id="BRp-wJ-ura"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Pus-Gz-Kda" firstAttribute="top" secondItem="KJc-Qa-YXm" secondAttribute="top" constant="25" id="0Vz-t6-6aU"/>
-                    <constraint firstAttribute="trailing" secondItem="VZl-71-7dC" secondAttribute="trailing" constant="30" id="9Be-MK-OG4"/>
+                    <constraint firstAttribute="trailing" secondItem="VZl-71-7dC" secondAttribute="trailing" constant="20" id="9Be-MK-OG4"/>
                     <constraint firstAttribute="bottom" secondItem="Pus-Gz-Kda" secondAttribute="bottom" constant="25" id="EUI-LH-Tsa"/>
                     <constraint firstItem="Pus-Gz-Kda" firstAttribute="centerY" secondItem="KJc-Qa-YXm" secondAttribute="centerY" id="G8k-aI-ry7"/>
                     <constraint firstItem="VZl-71-7dC" firstAttribute="centerY" secondItem="KJc-Qa-YXm" secondAttribute="centerY" id="ZK5-gP-GDa"/>
                     <constraint firstItem="Pus-Gz-Kda" firstAttribute="leading" secondItem="KJc-Qa-YXm" secondAttribute="leading" constant="30" id="cpr-cM-dFe"/>
+                    <constraint firstItem="VZl-71-7dC" firstAttribute="leading" secondItem="Pus-Gz-Kda" secondAttribute="trailing" constant="20" id="umb-ed-D3f"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

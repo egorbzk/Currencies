@@ -25,7 +25,6 @@ final class LatestCurrenciesController: UIViewController {
     private var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +38,16 @@ final class LatestCurrenciesController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-    }
+    }   
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     func setupSearchBar() {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         definesPresentationContext = true
-//        searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchController
     }
     
@@ -57,11 +59,18 @@ final class LatestCurrenciesController: UIViewController {
     
     func filterContentForSearchText(_ searchText: String) {
         filteredItems = items.filter { (item: APILatestResponse.Rate) -> Bool in
-            return item.name.lowercased().contains(searchText.lowercased())
+            return item.localizedTitle.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == CalculationViewController.CalculationSegueKey, let index = tableView.indexPathForSelectedRow?.row {
+            let item = (isSearchBarEmpty ? items : filteredItems)[index]
+            let controller = segue.destination as? CalculationViewController
+            controller?.rate = item
+        }
+    }
 }
 
 extension LatestCurrenciesController: UITableViewDataSource {
@@ -72,14 +81,19 @@ extension LatestCurrenciesController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.ItemCellKey) as! ItemCell
         let item = (isSearchBarEmpty ? items : filteredItems)[indexPath.row]
-        cell.titleLabel.text = item.name
+        cell.titleLabel.text = item.localizedTitle
+        cell.controlButton.isSelected = DataManager.shared.isFavorite(item)
+        cell.controlAction = {
+            DataManager.shared.save(item)
+            cell.controlButton.isSelected = DataManager.shared.isFavorite(item)
+        }
         return cell
     }
 }
 
 extension LatestCurrenciesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: CalculationViewController.CalculationSegueKey, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

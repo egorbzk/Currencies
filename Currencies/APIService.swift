@@ -15,9 +15,14 @@ struct APILatestResponse: Codable {
     public let date: Date
     public let rates: [Rate]
     
-    struct Rate: Decodable {
+    struct Rate: Codable {
         public let name: String
         public let value: Double
+        public let localizedTitle: String
+        
+        var dictionary: [String: Double] {
+            return [name : value]
+        }
     }
     
     enum CodingKeys: String, CodingKey {
@@ -31,12 +36,13 @@ struct APILatestResponse: Codable {
         date = try container.decode(Date.self, forKey: .date)
         let r = try container.decode([String : Double].self, forKey: .rates)
         
-        rates = r.map({ Rate(name: $0.key, value: $0.value) }).sorted(by: {$0.name < $1.name})
+        rates = r.map({ Rate(name: $0.key, value: $0.value, localizedTitle: Locale.getCurrencyName(for: $0.key)) }).sorted(by: {$0.name < $1.name})
     }
-    
-    func encode(to encoder: Encoder) throws {
-        
-    }
+}
+
+struct APICalculateResponse: Codable {
+    public let success: Bool
+    public let result: Double
 }
 
 final class Router {
@@ -44,7 +50,7 @@ final class Router {
     private(set) var baseAPIURL: String
     
     var latest: String { return urlWith(components: ["latest"])}
-    var calculate: String { return urlWith(components: ["calculate"])}
+    var convert: String { return urlWith(components: ["convert"])}
     
     init() {
         baseAPIURL = Bundle.apiURL()
@@ -76,7 +82,6 @@ class APIService {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-mm-dd"
         decoder.dateDecodingStrategy = .formatted(formatter)
-        
         return decoder
     }()
     
@@ -114,7 +119,10 @@ class APIService {
         fetchResources(url: url, completion: completion)
     }
     
-    func calculateCurrencies() {
-        
+    func calculate(from: String, amount: String, completion: @escaping (Result<APICalculateResponse, APIError>) -> Void) {
+        guard let url = URL(string: "\(router.convert)?from=\(from)&to=USD&amount=\(amount)") else {
+            return
+        }
+        fetchResources(url: url, completion: completion)
     }
 }

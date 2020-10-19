@@ -9,8 +9,12 @@
 import UIKit
 
 class ItemCell: UITableViewCell {
+    
     static let ItemCellKey = "ItemCell"
     static let ItemCellNibKey = "ItemCell"
+   
+    public var controlAction: (() -> Void)?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var controlButton: UIButton!
     
@@ -18,9 +22,7 @@ class ItemCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//    }
-
+    @IBAction func controlButtonPressed(_ sender: Any) {
+        controlAction?()
+    }
 }
