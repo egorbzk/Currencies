@@ -36,7 +36,7 @@ struct APILatestResponse: Codable {
         date = try container.decode(Date.self, forKey: .date)
         let r = try container.decode([String : Double].self, forKey: .rates)
         
-        rates = r.map({ Rate(name: $0.key, value: $0.value, localizedTitle: Locale.getCurrencyName(for: $0.key)) }).sorted(by: {$0.name < $1.name})
+        rates = r.map({ Rate(name: $0.key, value: $0.value, localizedTitle: Locale.getCurrencyName(for: $0.key)) }).sorted(by: {$0.localizedTitle < $1.localizedTitle})
     }
 }
 

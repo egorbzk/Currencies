@@ -59,7 +59,7 @@ final class DataManager {
     private func reladData() {
         if let data = userDefaults.data(forKey: DataManager.FavoriteItemsKey) {
             let decoded: [String : Double] = try! decoder.decode([String : Double].self, from: data)
-            favoriteItems = decoded.map({ APILatestResponse.Rate(name: $0.key, value: $0.value, localizedTitle: Locale.getCurrencyName(for: $0.key)) }).sorted(by: {$0.name < $1.name})
+            favoriteItems = decoded.map({ APILatestResponse.Rate(name: $0.key, value: $0.value, localizedTitle: Locale.getCurrencyName(for: $0.key)) }).sorted(by: {$0.localizedTitle < $1.localizedTitle})
         }
     }
 }
